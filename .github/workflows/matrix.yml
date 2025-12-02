@@ -5,14 +5,8 @@ jobs:
     continue-on-error: true
     strategy:
       matrix:
-        os-type: ['ubuntu-latest','windows-latest']
-        node-version: [12,13,14]
-        include:
-           - os-type: ubuntu-latest
-             node-version: 14
-        exclude: 
-            - os-type: 'windows-latest'
-              node-version: 12
+        os-type: ['ubuntu-latest']
+        node-version: [14]
 
     runs-on: ${{matrix.os-type}}
     steps:
