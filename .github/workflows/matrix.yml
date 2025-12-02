@@ -10,7 +10,7 @@ jobs:
         - name: checkout code
           uses: actions/checkout@v4
         - name: install node
-          uses: actions/setup-nodep@v4
+          uses: actions/setup-node@v4
           with:
             node-version: 14
         - name: install dependencies
