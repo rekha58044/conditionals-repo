@@ -1,0 +1,21 @@
+name: matrix-job
+on: push
+jobs:
+  test:
+    strategy:
+      matrix:
+        os-type: ['ubuntu-latest','windows-latest']
+    runs-on: ${{matrix.os-type}}
+    steps:
+        - name: checkout code
+          uses: actions/checkout@v4
+        - name: install node
+          uses: actions/setup-nodep@v4
+          with:
+            node-version: 14
+        - name: install dependencies
+          run: npm ci
+        - name: run tests
+          run: npm run test
+        - name: build the code
+          run: npm run build
